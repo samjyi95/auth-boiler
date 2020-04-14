@@ -22,12 +22,17 @@ app.use(layouts)
 //set up static folder
 app.use(express.static('static'))
 
+//Decrypt the var coming via POST route (aka from forms)
+app.use(express.urlencoded({extended: false}))
+
 /*****************************
  * ROUTES
  *****************************/
+//Controllers
+app.use('/auth', require('./controllers/auth'))
 
 //create a home route
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.render('home')
 })
 
