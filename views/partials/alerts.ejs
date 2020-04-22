@@ -1,0 +1,9 @@
+<% if (alerts && alerts.error) { %>
+        <div class="card red light" style="margin-top: 0">
+            <div class="card-content" style="padding: 10px">
+                <% alerts.error.forEach(e => { %>
+                Error: <%= e %> 
+            </div>
+        </div> 
+    <% }) %>
+<% } %>
