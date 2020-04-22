@@ -2,16 +2,61 @@
 <p>New around here? Well tell us about yourself!!!</p>
 
 <div class="row">
-    <form class="col s12">
+    <form class="col s12" method="POST" action="/auth/signup">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate" name=firstname value="<%= data.firstname %>">
           <label for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" type="text" class="validate" name="lastname" value="<%= data.lastname %>">
           <label for="last_name">Last Name</label>
         </div>
       </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Placeholder" id="email" type="email" class="validate" name=email value="<%= data.email %>">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="password" type="text" class="validate" name="password">
+          <label for="password">Password</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="password_verify" type="password" class="validate" name="password_verify">
+          <label for="password_verify">Verify</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4">
+          <input type="text" id="username" name="username" value="<%= data.username %>">
+          <label for="username">Display Username</label>
+        </div>
+        <div class="input-field col s4">
+          <input type="number" id="zipcode" name="zipcode" value="<%= data.zipcode %>">
+          <label for="zipcode">Zip code</label>
+        </div>
+        <div class="input-field col s4">
+          <input type="text" id="birthday" name="birthday" class="datepicker" value="<%= data.birthday %>">
+          <label for="birthday">Birthday</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Placeholder" id="pic" type=url class="validate" name="pic" value="<%= data.pic %>">
+          <label for="pic">Picture</label>
+        </div>
+      </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="bio" name="bio" class="materialize-textarea" ><%= data.bio %>"</textarea>
+              <label for="bio">Bio</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves light blue grey" type="submit">
+          <i class="material-icon right">send</i>
+        </button>
     </form>
 </div>

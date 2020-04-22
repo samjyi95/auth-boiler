@@ -10,7 +10,7 @@ let layouts = require('express-ejs-layouts')
 let app = express();
 
 /**********************
- * SERTTINGS/MIDDLEWARE
+ * SETTINGS/MIDDLEWARE
  **********************/
 
 //set template lang to ejs 
