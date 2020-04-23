@@ -25,6 +25,7 @@ router.post('/signup', (req, res) => {
     if (req.body.password !== req.body.password_verify) {
         //Send a message on why things didn't work
         req.flash('error', 'Passwords do not match')
+
         //Put the user back onto the signup form 
         res.render('auth/signup', { data: req.body, alerts: req.flash() })
     }
@@ -53,16 +54,20 @@ router.post('/signup', (req, res) => {
             //Check for sequelize validation errors (and make flash messages for them)
             if (err.errors) {
                 err.errors.forEach(e => {
-                if (e.type == 'Validation error')
-                    req.flash('error', e.message)
+                    if (e.type == 'Validation error'){
+                        req.flash('error', e.message)
+                    }
                 })
+                //Put the user back onto the signup form 
+                res.render('auth/signup', { data: req.body, alerts: req.flash() })
             }
             else {
                 // Generic message for any other 
                 req.flash('error', 'Server error')
+
+                // Redirect back to sign up 
+                res.redirect('/auth/signup')
             }
-            // Redirect back to sign up 
-            res.redirect('/auth/signup')
         })
     }
 })
