@@ -58,6 +58,17 @@ This is a boilerplate for an Express app with local user auuthentication. It exi
 
 ### 1. clone the repository but with a different name.
 
+Run the following command(s) on the terminal.
+
 ```sh
-gitclone <repo_link> <new_name>
+git clone <repo_link> <new_name>
+```
+**For Example**
+```
+git clone https://github.com/samjyi95/auth-boiler.git whateva-you-want-to-name-it
+```
+
+### 2. Install the modules from package.json
+```sh
+npm i -y
 ```
