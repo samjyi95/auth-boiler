@@ -70,5 +70,15 @@ git clone https://github.com/samjyi95/auth-boiler.git whateva-you-want-to-name-i
 
 ### 2. Install the modules from package.json
 ```sh
-npm i -y
+npm i 
 ```
+
+### 3. Customize the new project
+
+Remove defaulty stuff. For exampl:
+
+* Title in `layout.ejs`
+* Logo firld in the nav bar
+* Description and Repository field in package.json
+* Remove this boilerplate's readme content
+* Switch Favicon to project-specific one (in `layout.ejs` head section)
