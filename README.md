@@ -26,7 +26,10 @@ This is a boilerplate for an Express app with local user auuthentication. It exi
 | password | STRING | Hash |
 | birthday | DATE | - |
 | email | STRING | Unique Login |
-
+| bio | text | - |
+| pic | text | - |
+| createdAt| Date | Automatically added by Sequelize |
+| updatedAt| Date | Automatically added by Sequelize |
 
 ## Included Routes
 
