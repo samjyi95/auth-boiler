@@ -98,3 +98,14 @@ createb whateva_you_want_to_name_it
 ### 5. Alter Sequeliz Config File
 
 In `config/config.json`, updatw the databas name to the one createds in step 4, Other settings are likely okay to be untouched, but you should check the username, password, and dialect.
+
+
+### 6. Check user model for relevance to new project to new project's needs
+
+For example, if the new project doesn't need a birthday field then delete it from the user model and use migration files 
+
+### 7. Run the sequelize migrations 
+```sh
+sequelize db:migrate
+```
+
