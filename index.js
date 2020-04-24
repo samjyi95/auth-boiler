@@ -13,6 +13,9 @@ let session = require('express-session')
 //Create an express instance
 let app = express();
 
+//include passport (via the passport config file)
+let passport = require('./config/passportConfig')
+
 /**********************
  * SETTINGS/MIDDLEWARE
  **********************/
@@ -39,9 +42,14 @@ app.use(session({
 //Set up connect-flash for the flash alert messages (depends on session, ORDER MATTERS HERE)
 app.use(flash())
 
+//Set up passport (depends on sessions, so we'll initiliaze it after app.use('sessions') )
+app.use(passport.initialize())
+app.use(passport.session())
+
 // 'Custom middleware - make certain variables avaialable to EJS pages through 'locals'( something )
 app.use((req, res, next) => {
     res.locals.alerts = req.flash()
+    res.locals.user = req.user
     next()
 })
 

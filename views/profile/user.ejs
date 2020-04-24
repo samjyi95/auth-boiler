@@ -1,1 +1,15 @@
-<h1>User Profile</h1>
+<h1><%= user.firstname %>'s Profile</h1>
+
+<div class="row">
+    <div class="col s4">
+        <img src="<%= user.pic %>" alt="profile pic" style="height: 500px; width: auto;">
+        <div>
+            <p><strong>Name:</strong> <%= user.firstname %> <%= user.lastname %> </p>
+            <p><strong>Birthday: </strong> <%= moment(user.birthday).format(' dddd MMMM Do[,] YYYY') %> </p>
+            <p><strong>Account Created on: </strong><%= moment(user.createdAt).format('dddd MMMM Do[,] YYYY') %> </p>
+        </div>
+            <p>
+                <%= user.bio %>
+            </p>
+    </div>
+</div>
