@@ -64,11 +64,13 @@ Run the following command(s) on the terminal.
 git clone <repo_link> <new_name>
 ```
 **For Example**
+
 ```
 git clone https://github.com/samjyi95/auth-boiler.git whateva-you-want-to-name-it
 ```
 
 ### 2. Install the modules from package.json
+
 ```sh
 npm i 
 ```
@@ -91,6 +93,7 @@ createdb <new_db_name>
 ```
 
 **For Example**
+
 ```sh
 createb whateva_you_want_to_name_it 
 ```
@@ -104,8 +107,68 @@ In `config/config.json`, updatw the databas name to the one createds in step 4, 
 
 For example, if the new project doesn't need a birthday field then delete it from the user model and use migration files 
 
+
 ### 7. Run the sequelize migrations 
+
 ```sh
 sequelize db:migrate
 ```
+
+### 8. Create a file for environment variables 
+
+```sh 
+touch .env
+```
+
+> Alternatively just create via text editor
+
+Include the following .env variables:
+
+* SESSION_SECRET - this a key for the session to use
+
+### 9, Run the server and make sure ir works
+
+**with nodemon**
+
+```sh 
+nodemon
+```
+
+**without nodemon**
+
+```sh
+node index.js
+```
+
+### 10. Delete the origin that points to the boilerplate repository
+
+Currently if we run this command:
+
+```sh
+git remote -v
+```
+
+it will show `origin` as being hookeup up to the boilerplate repository. We'll want a fresh repository insteead, so let's delete the origin remote
+
+```sh
+git remote remove origin
+```
+
+### 11. Create an empty git repo throught the 
+
+Via the Github websitte. Follow the directions as they show up when you create a new repository
+
+```sh
+git init
+git add .
+got commit -m "Initial commit"
+git remote add origin <new_repo_name>
+git push origin master 
+```
+
+## Happy Developing!!!
+
+
+
+
 
