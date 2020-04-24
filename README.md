@@ -82,3 +82,19 @@ Remove defaulty stuff. For exampl:
 * Description and Repository field in package.json
 * Remove this boilerplate's readme content
 * Switch Favicon to project-specific one (in `layout.ejs` head section)
+
+
+### 4. Create a new database for the new project
+
+```sh
+createdb <new_db_name>
+```
+
+**For Example**
+```sh
+createb whateva_you_want_to_name_it 
+```
+
+### 5. Alter Sequeliz Config File
+
+In `config/config.json`, updatw the databas name to the one createds in step 4, Other settings are likely okay to be untouched, but you should check the username, password, and dialect.
