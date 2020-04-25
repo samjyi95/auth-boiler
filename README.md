@@ -98,7 +98,7 @@ createdb <new_db_name>
 createb whateva_you_want_to_name_it 
 ```
 
-### 5. Alter Sequeliz Config File
+### 5. Alter Sequelize Config File
 
 In `config/config.json`, updatw the databas name to the one createds in step 4, Other settings are likely okay to be untouched, but you should check the username, password, and dialect.
 
