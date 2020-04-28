@@ -24,13 +24,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         len: {
-          args: [6, 32],
+          args: [1, 32],
           msg: 'Password must be 6 - 32 characters'
         }
       }
     },
-    bio: DataTypes.TEXT,
     username: DataTypes.STRING,
+    bio: DataTypes.TEXT,
     birthday: DataTypes.DATE,
     admin: DataTypes.BOOLEAN,
     pic: DataTypes.STRING,
@@ -49,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
 
   user.associate = function(models) {
     // associations can be defined here
+    models.user.hasMany(models.post)
   };
 
   user.prototype.validPassword = function(typedInPassword) {

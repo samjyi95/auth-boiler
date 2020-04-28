@@ -13,3 +13,19 @@
             </p>
     </div>
 </div>
+
+<div class="row">
+    <div class="col s4">
+        <!-- The link below should lead them to that user "that they're visiting/pic/:id". And you should
+        probably include the img tag WITHIN the opening <a> tag-->
+        <a href="">
+            <img src="<%= userProfile.pic %>" alt="profile pic" style="height: 500px; width: auto;">
+        </a>
+        <div>
+            <p><strong>Name:</strong> <%= user.firstname %> <%= user.lastname %> </p>
+        </div>
+            <p>
+                <%= user.bio %>
+            </p>
+    </div>
+</div>

@@ -9,6 +9,9 @@ let express = require('express')
 let flash = require('connect-flash')
 let layouts = require('express-ejs-layouts')
 let session = require('express-session')
+let cloudinary = require('cloudinary').v2
+let multer =  require('multer')
+let upload = multer({dest: './uploads/' })
 
 //Create an express instance
 let app = express();
@@ -31,6 +34,7 @@ app.use(express.static('static'))
 
 //Decrypt the var coming via POST route (aka from forms)
 app.use(express.urlencoded({extended: false}))
+app.use(express.json())
 
 //Set up sessions
 app.use(session({
@@ -53,17 +57,25 @@ app.use((req, res, next) => {
     next()
 })
 
+//setting up multer and upload
+//Im almost certain this sholld go in the controllers for logistics along with lines 12 and 13
+app.post('/', upload.single('myFile'), (req, res) => {
+    res.send(req.file)
+})
+
 /*****************************
  * ROUTES
  *****************************/
 //Controllers
 app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile'))
+app.use ('/logistics', require('./controllers/logistics'))
 
 //create a home route
 app.get('/', (req, res) => {
     res.render('home')
 })
+
 
  //create a wild card route (catch-all)
 app.get('*', (req, res) => {

@@ -31,12 +31,12 @@ passport.deserializeUser((id, done) => {
 
 //LOCAL Strategy: using a database that we manage ourselves (not OAuth)
 passport.use(new LocalStrategy({
-    usernameField: 'email',
+    usernameField: 'username',
     passpwordField: 'password',
-}, (email, password, done) => {
+}, (username, password, done) => {
     //Try looking up the user by their email
     db.user.findOne({
-        where: { email: email }
+        where: { username: username }
     })
     .then(foundUser => {
         //check and see if the user is found; also if yes, then check their password too

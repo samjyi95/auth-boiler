@@ -35,8 +35,7 @@ module.exports = {
         defaultValue: false
       },
       pic: {
-        type: Sequelize.STRING,
-        defaultValue: 'http://placekitten.com/200/200'
+        type: Sequelize.STRING
       },
       zipcode: {
         type: Sequelize.INTEGER

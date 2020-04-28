@@ -2,7 +2,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background-color: bisque;
+    background-color: white;
     text-align: center;
 }
 
@@ -18,4 +18,8 @@ body {
 
 main {
     flex: 1 0 auto;
+}
+
+i {
+    color: #263238;
 }

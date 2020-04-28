@@ -1,0 +1,24 @@
+<!-- to get to this route I think it's '/views/visiting/viewPic' possibly w/out the 'view' part, test it out. -->
+
+<div class="row">
+    <div class="col s4">
+        <!-- change the img src maybe to something like src="user.pic/(squids)userPic.id(closing squid)???
+        or is it user.pic.id????  -->
+        <img src="<%= userProfile.pic %>" alt="profile pic" style="height: 500px; width: auto;">
+        <div>
+            <p><strong>Name:</strong> <%= user.firstname %> <%= user.lastname %> </p>
+        </div>
+            <p>
+                <!-- change this to the caption-->
+                <%= user.bio %>
+            </p>
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <% post.forEach(element => { %>
+             
+            <% }) %>
+        </div>
+
+    </div>
+</div>
