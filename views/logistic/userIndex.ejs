@@ -1,14 +1,15 @@
-<h1>See all the pictures</h1>
+<h1>All the users will be listed here</h1>
 
-<% posts.forEach(po => { %>
+<% users.forEach(u => { %>
 <div class="row">
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img src="<%= po.picPost %>" alt="picture">
+          <img src="<%= u.pic %> " style="width: 350; height: auto;">
+          <span class="card-title"><%= u.firstname %> <%= u.lastname %>  </span>
         </div>
         <div class="card-content">
-          <p><%= po.caption %></p>
+          <p><%= u.bio %> </p>
         </div>
         <div class="card-action">
           <a href="#">This is a link</a>

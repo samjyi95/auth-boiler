@@ -10,9 +10,19 @@ router.use(userLogin)
 
 //GET /profile/user - a normal profile for the plebs
 //NOTE: Protect this toure from the users who are not logged in 
+//It passed { moment } within the render function if you have to bring that back, but I would assume it's not coming back
 router.get('/user', (req, res) => {
-    res.render('profile/user', { moment })
+    console.log('hitting this route')
+    db.post.findAll()
+    .then((posts) => {
+        res.render('profile/user', { moment, posts, user: req.user.dataValues } )
+    })
+    .catch((err) => {
+        console.log(err)
+        res.render('error')
+    })
 })
+
 
 //GET /profile/guest/userId - viewing a user's profile as a guest (instagram!? project 2!?)
 router.get('/guest/:id', (req,res) => {
@@ -39,5 +49,7 @@ router.get('/admin', adminLogin, (req, res) => {
         res.render('error')
     })
 })
+
+
 
 module.exports = router

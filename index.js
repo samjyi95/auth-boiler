@@ -12,6 +12,7 @@ let session = require('express-session')
 let cloudinary = require('cloudinary').v2
 let multer =  require('multer')
 let upload = multer({dest: './uploads/' })
+let methodOverride = require('method-override')
 
 //Create an express instance
 let app = express();
@@ -35,6 +36,7 @@ app.use(express.static('static'))
 //Decrypt the var coming via POST route (aka from forms)
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
+app.use(methodOverride('_method'))
 
 //Set up sessions
 app.use(session({

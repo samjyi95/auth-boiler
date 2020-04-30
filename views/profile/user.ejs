@@ -2,17 +2,50 @@
 
 <div class="row">
     <div class="col s4">
-        <img src="<%= user.pic %>" alt="profile pic" style="height: 500px; width: auto;">
-        <div>
-            <p><strong>Name:</strong> <%= user.firstname %> <%= user.lastname %> </p>
-            <p><strong>Birthday: </strong> <%= moment(user.birthday).format(' dddd MMMM Do[,] YYYY') %> </p>
-            <p><strong>Account Created on: </strong><%= moment(user.createdAt).format('dddd MMMM Do[,] YYYY') %> </p>
-        </div>
-            <p>
-                <%= user.bio %>
-            </p>
+        <img class="materialboxed" width="650" src="<%= user.pic %>" alt="profile pic" style="height: 350px; width: auto;">
+    </div>
+    <div>
+        <p><strong>Name:</strong> <%= user.firstname %> <%= user.lastname %> </p>
+        <p><strong>Birthday: </strong> <%= moment(user.birthday).format(' dddd MMMM Do[,] YYYY') %> </p>
+        <p><strong>Account Created on: </strong><%= moment(user.createdAt).format('dddd MMMM Do[,] YYYY') %> </p>
+        <p>
+            <%= user.bio %>
+        </p>
+        <form>
+            <input type="submit" class="btn-small grey" value="Edit Profile">
+        </form>
     </div>
 </div>
 <div>
+    <li>
         <a href="/logistics/posting"><i class="large material-icons" >add_a_photo</i></a>
+    </li>
+    <li>
+        <a href="/logistics/userIndex"><i class="large material-icons" >people</i></a>
+    </li>
+    <li>
+        <a href="/logistics/feed"><i class="large material-icons" >image</i></a>
+    </li>
 </div>
+
+
+<% posts.forEach(p => { %>
+    <% if (p.userId == user.id) { %> 
+    <ul>
+        <li>
+            <img src="<%= p.picPost %>" style="width: 350px; height: auto">
+            <p><%= p.caption %> </p>
+        </li>
+        <form method="POST" action="/logistics/posts/<%= p.id %>/?_method=DELETE">
+            <input type="submit" class="btn-small red" value="Delete Picture">
+        </form>
+    </ul>
+    <% } %> 
+<% }) %>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.materialboxed');
+        var instances = M.Materialbox.init(elems, options);
+    });
+</script>
