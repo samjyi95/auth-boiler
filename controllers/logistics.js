@@ -12,10 +12,7 @@ router.get('/posting', (req, res) => {
 
 
 
-//This route will be visiting the feed
-router.get('/feed', (req, res) => {
-    res.render('logistic/feed')
-})
+
 
 //This route pushes all user data for the userIndex page
 router.get('/userIndex', (req, res) => {
@@ -28,6 +25,7 @@ router.get('/userIndex', (req, res) => {
     })
 })
 
+//This route will be visiting the feed
 router.get('/feed', (req, res) => {
     db.post.findAll()
     .then((posts) => {
@@ -37,6 +35,15 @@ router.get('/feed', (req, res) => {
     .catch((err) => {
         res.render('error')
     })
+})
+
+//I dont think Ill need this route because it's already on profile.js
+router.get('/viewPic/:id', (req, res) => {
+    db.post.findOne({
+        where: { id: req.params.id }
+    })
+    .then()
+    res.render('logistic/viewPic')
 })
 
 
@@ -97,10 +104,7 @@ router.delete('/posts/:id/', (req, res) => {
 
 
 
-//I dont think Ill need this route because it's already on profile.js
-router.get('/:userId/:picPostId', (req, res) => {
-    res.send('This route will allow users to view a specofoc pic from a another users page')
-})
+
 
 router.get('/:userId', (req, res) => {
     res.send( )

@@ -1,24 +1,16 @@
-<!-- to get to this route I think it's '/views/visiting/viewPic' possibly w/out the 'view' part, test it out. -->
+<h1>This is page is for a specific pic</h1>
 
 <div class="row">
-    <div class="col s4">
-        <!-- change the img src maybe to something like src="user.pic/(squids)userPic.id(closing squid)???
-        or is it user.pic.id????  -->
-        <img src="<%= userProfile.pic %>" alt="profile pic" style="height: 500px; width: auto;">
-        <div>
-            <p><strong>Name:</strong> <%= user.firstname %> <%= user.lastname %> </p>
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= post.picPost %> ">
+          <span class="card-title">Card Title</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">🤍</i></a>
         </div>
-            <p>
-                <!-- change this to the caption-->
-                <%= user.bio %>
-            </p>
-    </div>
-    <div class="row">
-        <div class="col s4">
-            <% post.forEach(element => { %>
-             
-            <% }) %>
+        <div class="card-content">
+          <p><%= post.caption %> </p>
         </div>
-
+      </div>
     </div>
-</div>
+  </div>
