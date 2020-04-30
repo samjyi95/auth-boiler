@@ -1,4 +1,4 @@
-<h1><%= user.firstname %> Visiting <%= userProfile.name %>'s Page! </h1>
+<h1><%= user.firstname %> Visiting <%= userProfile.firstname %>'s Page! </h1>
 <!-- this page would allow a user to view someone's page but not allow them to edit pics -->
 
 
@@ -16,5 +16,21 @@
             <p>
                 <%= user.bio %>
             </p>
+        <div>
+            
+            <% posts.forEach(p => { %>
+                <% if (p.userId == user.id) { %> 
+                <ul>
+                    <li>
+                        <img src="<%= p.picPost %>" style="width: 350px; height: auto">
+                        <p><%= p.caption %> </p>
+                    </li>
+                    <form method="POST" action="/logistics/posts/<%= p.id %>/?_method=DELETE">
+                        <input type="submit" class="btn-small red" value="Delete Picture">
+                    </form>
+                </ul>
+                <% } %> 
+            <% }) %>
+        </div>
     </div>
 </div>

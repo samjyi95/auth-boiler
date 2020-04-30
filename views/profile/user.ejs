@@ -16,14 +16,14 @@
         </form>
     </div>
 </div>
-<div>
-    <li>
+<div class="row">
+    <li class="col s4">
         <a href="/logistics/posting"><i class="large material-icons" >add_a_photo</i></a>
     </li>
-    <li>
+    <li class="col s4">
         <a href="/logistics/userIndex"><i class="large material-icons" >people</i></a>
     </li>
-    <li>
+    <li class="col s4">
         <a href="/logistics/feed"><i class="large material-icons" >image</i></a>
     </li>
 </div>
@@ -31,21 +31,17 @@
 
 <% posts.forEach(p => { %>
     <% if (p.userId == user.id) { %> 
-    <ul>
-        <li>
-            <img src="<%= p.picPost %>" style="width: 350px; height: auto">
-            <p><%= p.caption %> </p>
-        </li>
-        <form method="POST" action="/logistics/posts/<%= p.id %>/?_method=DELETE">
-            <input type="submit" class="btn-small red" value="Delete Picture">
-        </form>
-    </ul>
+    <div class="row">
+        <ul>
+            <li class="col s4">
+                <a href="/logistics/viewPic/p.id"><img src="<%= p.picPost %>" style="width: 350px; height: auto" ></a>
+                    <p><%= p.caption %> </p>
+                <form method="POST" action="/logistics/posts/<%= p.id %>/?_method=DELETE">
+                    <input type="submit" class="btn-small red" value="Delete Picture">
+                </form>
+            </li>
+        </ul>
+    </div>
     <% } %> 
 <% }) %>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.materialboxed');
-        var instances = M.Materialbox.init(elems, options);
-    });
-</script>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body > 
     <%- include('partials/nav') %>
     <%- include('partials/alerts') %> 
     <main>
@@ -34,5 +34,12 @@
         maxDate: (new Date()),
     })
   });
+
+  
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems3 = document.querySelectorAll('.materialboxed');
+        var instances = M.Materialbox.init(elems3, options);
+    });
+
 </script>
 </html>

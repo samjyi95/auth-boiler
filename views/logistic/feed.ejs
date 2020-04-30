@@ -1,19 +1,20 @@
 <h1>See all the pictures</h1>
 
-<% posts.forEach(po => { %>
-<div class="row">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%= po.picPost %>" alt="picture">
-        </div>
-        <div class="card-content">
-          <p><%= po.caption %></p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
+
+<% posts.forEach(p => { %>
+    <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img src="<%= p.picPost %>" alt="picture">
+            </div>
+            <div class="card-content">
+              <p><%= p.caption %></p>
+            </div>
+            <div class="card-action">
+              <a href="#">visit</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <% }) %>
+      <% }) %>

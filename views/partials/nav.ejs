@@ -1,10 +1,7 @@
 <nav class="blue-grey">
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo">
-        </a>
-        <!-- <svg viewBox="0 0 24 24">
-            <path d="M11 9.47V11H14.76L13 14.53V13H9.24L11 9.47M13 1L6 15H11V23L18 9H13V1Z"/>
-        </svg> -->
+        <a href="#" class="brand-logo"></a>
+        
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>
@@ -14,7 +11,9 @@
         </li>
         <% if (user) { %>
             <li>
-                <a href ="/profile/user">Profile Page</a>
+                <a href ="/profile/user">
+                    <i class="small material-icons">person</i>
+                </a>
             </li>
             <% if (user.admin) { %>
                 <li>  

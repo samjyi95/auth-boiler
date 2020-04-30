@@ -31,6 +31,7 @@ router.get('/userIndex', (req, res) => {
 router.get('/feed', (req, res) => {
     db.post.findAll()
     .then((posts) => {
+        console.log(posts)
         res.render('logistic/feed', { posts })
     })
     .catch((err) => {
